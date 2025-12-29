@@ -5,7 +5,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.simplelottonew.R
+import com.example.simplelottonew.adapter.ViewPagerAdapter
 import com.example.simplelottonew.databinding.ActivityMainBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -24,6 +27,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initView() {
+        setupViewPager()
+    }
 
+    private fun setupViewPager() {
+        with(binding) {
+            val viewPagerAdapter = ViewPagerAdapter(this@MainActivity)
+            viewPager.adapter = viewPagerAdapter
+
+            val tabTitles = listOf(
+                R.string.tab_title_1,
+                R.string.tab_title_2,
+                R.string.tab_title_3
+            )
+            TabLayoutMediator(tabs, viewPager) { tab, position ->
+                tab.text = getString(tabTitles[position])
+            }.attach()
+        }
     }
 }

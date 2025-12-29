@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">SimpleLottoNew</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_title_1">로또 시뮬레이션</string>
+    <string name="tab_title_2">당첨번호 조회</string>
+    <string name="tab_title_3">설정</string>
 </resources>
