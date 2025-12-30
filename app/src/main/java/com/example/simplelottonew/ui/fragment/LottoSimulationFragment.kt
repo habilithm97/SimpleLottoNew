@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import com.example.simplelottonew.R
 import com.example.simplelottonew.databinding.FragmentLottoSimulationBinding
 
 class LottoSimulationFragment : Fragment() {
@@ -29,13 +31,19 @@ class LottoSimulationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupBtnGenerate()
+        initView()
     }
 
-    private fun setupBtnGenerate() {
+    private fun initView() {
         binding.btnGenerate.setOnClickListener {
             val lottoNums = createLottoNumbers()
             Log.d("LottoSimulationFragment", lottoNums.toString())
+
+            // (ball, num) Pair를 구조 분해 선언으로 받아 순서대로 처리
+            ballList.zip(lottoNums).forEach { (ball, num) ->
+                ball.text = num.toString()
+                setBallColor(ball, num) // 각 ball에 num과 color 적용
+            }
         }
     }
 
@@ -43,6 +51,17 @@ class LottoSimulationFragment : Fragment() {
     private fun createLottoNumbers(): List<Int> =
         // shuffled() : 내부적으로 새 리스트를 만들어서 섞기 때문에 원본 훼손 안 함 (안전)
         (1..45).shuffled().take(6).sorted()
+
+    private fun setBallColor(ball: TextView, num: Int) {
+        val drawableRes = when (num) {
+            in 1..10 -> R.drawable.ball_yellow
+            in 11..20 -> R.drawable.ball_blue
+            in 21..30 -> R.drawable.ball_red
+            in 31..40 -> R.drawable.ball_gray
+            else -> R.drawable.ball_green
+        }
+        ball.background = ContextCompat.getDrawable(requireContext(), drawableRes)
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
