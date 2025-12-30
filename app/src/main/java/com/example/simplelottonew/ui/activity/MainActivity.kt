@@ -36,9 +36,9 @@ class MainActivity : AppCompatActivity() {
             viewPager.adapter = viewPagerAdapter
 
             val tabTitles = listOf(
-                R.string.tab_title_1,
-                R.string.tab_title_2,
-                R.string.tab_title_3
+                R.string.title_1,
+                R.string.title_2,
+                R.string.title_3
             )
             TabLayoutMediator(tabs, viewPager) { tab, position ->
                 tab.text = getString(tabTitles[position])
