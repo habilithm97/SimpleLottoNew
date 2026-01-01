@@ -1,6 +1,6 @@
 package com.example.simplelottonew.retrofit
 
-// 동행복권 로또 당첨번호 API 응답(JSON)을 코틀린 객체로 담기 위한 데이터 클래스
+// 로또 API 응답(JSON)을 코틀린 객체로 담음
 data class LottoResponse(
     val returnValue: String,
     val drwNo: Int,
