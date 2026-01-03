@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.simplelottonew.ui.fragment.FragmentC
-import com.example.simplelottonew.ui.fragment.LottoResultFragment
+import com.example.simplelottonew.ui.fragment.FragmentB
 import com.example.simplelottonew.ui.fragment.LottoSimulationFragment
 
 // FragmentStateAdapter : ViewPager2가 제공하는 어댑터 클래스, 각 화면을 프래그먼트로 구성할 때 사용
@@ -12,7 +12,7 @@ class ViewPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapte
 
     private val fragments = listOf(
         LottoSimulationFragment(),
-        LottoResultFragment(),
+        FragmentB(),
         FragmentC()
     )
 

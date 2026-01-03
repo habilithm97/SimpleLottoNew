@@ -35,7 +35,7 @@ class LottoSimulationFragment : Fragment() {
     }
 
     private fun initView() {
-        binding.btnGenerate.setOnClickListener {
+        binding.btn.setOnClickListener {
             val lottoNums = createLottoNumbers()
             Log.d("LottoSimulationFragment", lottoNums.toString())
 
